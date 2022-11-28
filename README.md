@@ -11,4 +11,4 @@ Made using [Mantine](https://github.com/mantinedev) and ViteJS.
 2. Fork repository
 3. Code your commits
 4. Send us a pull request
-And that's it! 💫 Now you just need to wait for us to review your pull request.
+And that's it! 💫 Now you just need to wait for us to review your pull request.8
