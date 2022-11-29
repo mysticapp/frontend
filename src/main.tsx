@@ -1,8 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./ThemeProvider";
 import App from "./pages/App";
 import Login from "./pages/auth/Login";
-import { ThemeProvider } from "./ThemeProvider";
+import Guild from './pages/guild/index';
 
 const Mystic = () => {
   return (
@@ -11,6 +12,7 @@ const Mystic = () => {
         <Routes>
           <Route index element={<App />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/guild" element={<Guild />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

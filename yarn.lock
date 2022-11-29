@@ -403,7 +403,7 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mantine/core@5.8.3":
+"@mantine/core@5.8.3", "@mantine/core@5.8.4":
   "integrity" "sha512-KiGrBtKhqVfOM82SWvob7635EWGLdXq1q/62YS+x1pgbrOJSk22EU9HgAuL5cJqbZ5Dwggb2irlAhsZNiBx9oQ=="
   "resolved" "https://registry.npmjs.org/@mantine/core/-/core-5.8.3.tgz"
   "version" "5.8.3"
@@ -414,6 +414,13 @@
     "@radix-ui/react-scroll-area" "1.0.0"
     "react-textarea-autosize" "8.3.4"
 
+"@mantine/ds@^5.8.4":
+  "integrity" "sha512-1lMHc6GwBFmOUPajXjEPdHlbgYd+H20yx+/ZITajTuVskZOj7jZwl+fM33YraXxwajmVR2bP37kMeUxfVJCWKA=="
+  "resolved" "https://registry.npmjs.org/@mantine/ds/-/ds-5.8.4.tgz"
+  "version" "5.8.4"
+  dependencies:
+    "@mantine/utils" "5.8.4"
+
 "@mantine/form@^5.8.4":
   "integrity" "sha512-ZiFCZBNxGj4HTgG67hKZhKEYhLgk/4nhWhJbUHxQiaynhVBd9lVK6QAcNFOj+MJ53zQ7RtbvuF1pfgF9hcuMWg=="
   "resolved" "https://registry.npmjs.org/@mantine/form/-/form-5.8.4.tgz"
@@ -422,10 +429,18 @@
     "fast-deep-equal" "^3.1.3"
     "klona" "^2.0.5"
 
-"@mantine/hooks@5.8.3":
+"@mantine/hooks@5.8.3", "@mantine/hooks@5.8.4":
   "integrity" "sha512-tXUm164GRGRMTtc+oXzJq8Pg4DW9EuURHcM+yV5Hw3kWNIGQzW/9E8ghjjyV2rS9DIdxB678rXAdeL6t2TVrPA=="
   "resolved" "https://registry.npmjs.org/@mantine/hooks/-/hooks-5.8.3.tgz"
   "version" "5.8.3"
+
+"@mantine/prism@5.8.4":
+  "integrity" "sha512-l1ZI8J+nxeiiN75jFY+T5blOjxQuSTroFKm/LedPh19G21X7ZsSEQMsqAZ+QF/Q0gGusgNFNgHVuD5VxF5fg8Q=="
+  "resolved" "https://registry.npmjs.org/@mantine/prism/-/prism-5.8.4.tgz"
+  "version" "5.8.4"
+  dependencies:
+    "@mantine/utils" "5.8.4"
+    "prism-react-renderer" "^1.2.1"
 
 "@mantine/styles@5.8.3":
   "integrity" "sha512-dwE3sg4UUgzpKxKE1+deYM5GkHxeIWcFu+G81MUYd+DGPv50gXrHmibs03t5a2FydwUPui8IyJya4tIMOD87QQ=="
@@ -439,6 +454,11 @@
   "integrity" "sha512-MprJbMh/z3TbC8yPF2PQftitRwl58w7hvhp7O9fT+9jrvJHKM8V7r15iHMwBw2jgX6zmlksstO7QfhENc0vMHQ=="
   "resolved" "https://registry.npmjs.org/@mantine/utils/-/utils-5.8.3.tgz"
   "version" "5.8.3"
+
+"@mantine/utils@5.8.4":
+  "integrity" "sha512-JR5eg406hkBPmYKBznDpisv54TZO7tNw1BAFDlgXsqGE6N8EZnxTEpuS+i9rFLsqqt0QGyvmQFIl6vfser0FNQ=="
+  "resolved" "https://registry.npmjs.org/@mantine/utils/-/utils-5.8.4.tgz"
+  "version" "5.8.4"
 
 "@radix-ui/number@1.0.0":
   "integrity" "sha512-Ofwh/1HX69ZfJRiRBMTy7rgjAzHmwe4kW9C9Y99HTRUcYLUuVT0KESFj15rPjRgKJs20GPq8Bm5aEDJ8DuA3vA=="
@@ -534,6 +554,11 @@
   "integrity" "sha512-ceuyTSs7PZ/tQqi19YZNBc5X7kj1f8p+4DIyrcIYFY9h+hd1OKm4RqtiWldR9eGEvIiJfsqwM4BsuCtRIuEw6Q=="
   "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.0.3.tgz"
   "version" "1.0.3"
+
+"@tabler/icons@*", "@tabler/icons@^1.114.0":
+  "integrity" "sha512-TI6l2YhGlpZGutaT/zrzTjLF0lsdB648QzM80Dhe22rL2lggvqOzcyWTw6ctmFTySgCwkmEnrUImOICjTlqoAA=="
+  "resolved" "https://registry.npmjs.org/@tabler/icons/-/icons-1.114.0.tgz"
+  "version" "1.114.0"
 
 "@types/parse-json@^4.0.0":
   "integrity" "sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA=="
@@ -907,7 +932,12 @@
     "picocolors" "^1.0.0"
     "source-map-js" "^1.0.2"
 
-"react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^18.2.0", "react-dom@>=16.8", "react-dom@>=16.8.0":
+"prism-react-renderer@^1.2.1":
+  "integrity" "sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg=="
+  "resolved" "https://registry.npmjs.org/prism-react-renderer/-/prism-react-renderer-1.3.5.tgz"
+  "version" "1.3.5"
+
+"react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^16.x || 17.x || 18.x", "react-dom@^18.2.0", "react-dom@>=16.8", "react-dom@>=16.8.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -949,7 +979,7 @@
     "use-composed-ref" "^1.3.0"
     "use-latest" "^1.2.1"
 
-"react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>=16.8", "react@>=16.8.0":
+"react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.x || 17.x || 18.x", "react@^18.2.0", "react@>=0.14.9", "react@>=16.8", "react@>=16.8.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
