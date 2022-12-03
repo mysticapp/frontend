@@ -5,7 +5,7 @@ import ChatComponent from "../../components/ChatComponent";
 export default function GuildView(){
   return (
     <>
-      <AppShell navbar={<GuildSidebar/>}>
+      <AppShell padding={'sm'} navbar={<GuildSidebar/>}>
         <ChatComponent/>
       </AppShell>
     </>

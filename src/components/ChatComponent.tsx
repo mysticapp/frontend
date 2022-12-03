@@ -5,7 +5,7 @@ import ChannelTopBar from "./GuildComponents/ChannelName";
 export default function ChatComponent() {
   return (
     <>
-      <Stack styles={{height:'100%', width: '100%'}}>
+      <Stack sx={{height:'100%', width: '100%'}}>
     <ChannelTopBar/>
         <Stack>
           <Message
