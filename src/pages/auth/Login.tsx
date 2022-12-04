@@ -1,4 +1,3 @@
-
 /**
  * Took from MantineUI
  */
@@ -14,13 +13,19 @@ import {
   Text,
   Anchor,
 } from "@mantine/core";
+import { useState } from "react";
+import { useSignIn } from "react-auth-kit";
+import axios from "axios";
+import { API_URL } from "../../Constants";
+import { useForm } from "@mantine/form";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
     minHeight: 900,
     backgroundSize: "cover",
     backgroundImage:
-      "url(https://images.unsplash.com/photo-1484242857719-4b9144542727?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80)",//TODO: Change it to some snippet of chat view when its ready.
+      "url(https://images.unsplash.com/photo-1484242857719-4b9144542727?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80)", //TODO: Change it to some snippet of chat view when its ready.
   },
 
   form: {
@@ -52,6 +57,42 @@ const useStyles = createStyles((theme) => ({
 
 export default () => {
   const { classes } = useStyles();
+  const signIn = useSignIn();
+  const navigate = useNavigate();
+
+  const form = useForm({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+    },
+  });
+  const LoginHandler = (values: { email: string; password: string }) => {
+    console.log(values);
+    axios
+      .post(`${API_URL}/auth/login`, {
+        email: values.email,
+        password: values.password,
+      })
+      .then((res) => {
+        let { data } = res;
+        if (
+          signIn({
+            token: data.token,
+            authState: data,
+            expiresIn: 60 * 24 * 7, //One week,
+            tokenType: "",
+          })
+        )
+          return navigate("/guild")
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className={classes.wrapper}>
       <Paper className={classes.form} radius={0} p={30}>
@@ -65,21 +106,24 @@ export default () => {
           Welcome back to Mystic!
         </Title>
 
-        <TextInput
-          label="Email address"
-          placeholder="hello@gmail.com"
-          size="md"
-        />
-        <PasswordInput
-          label="Password"
-          placeholder="Your password"
-          mt="md"
-          size="md"
-        />
-        <Checkbox label="Keep me logged in" mt="xl" size="md" />
-        <Button fullWidth mt="xl" size="md">
-          Login
-        </Button>
+        <form onSubmit={form.onSubmit((values) => LoginHandler(values))}>
+          <TextInput
+            label="Email address"
+            placeholder="hello@gmail.com"
+            size="md"
+            {...form.getInputProps("email")}
+          />
+          <PasswordInput
+            label="Password"
+            placeholder="Your password"
+            mt="md"
+            size="md"
+            {...form.getInputProps("password")}
+          />
+          <Button type="submit" fullWidth mt="xl" size="md">
+            Login
+          </Button>
+        </form>
 
         <Text align="center" mt="md">
           Don&apos;t have an account?{" "}
@@ -94,4 +138,4 @@ export default () => {
       </Paper>
     </div>
   );
-}
+};
