@@ -8,8 +8,7 @@ export default function Message({ author, message }: Props) {
         <Text>
           {author.username}{" "}
           <Text span size={"xs"}>
-            {message.createdAt.getMonth()}/{message.createdAt.getDay()}/
-            {message.createdAt.getFullYear()}
+            {message.createdAt.toLocaleString('en-GB')}
           </Text>
         </Text>
       </Flex>
