@@ -14,11 +14,14 @@
     "@mantine/ds": "^5.8.4",
     "@mantine/form": "^5.8.4",
     "@mantine/hooks": "5.8.3",
+    "@reduxjs/toolkit": "^1.9.1",
     "@tabler/icons": "^1.114.0",
     "axios": "^1.2.0",
     "react": "^18.2.0",
     "react-auth-kit": "^2.7.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.25",

@@ -12,8 +12,8 @@ import {
   Image,
 } from "@mantine/core";
 import { IconHash, IconVolume } from "@tabler/icons";
-
-import ChatComponent from "../../components/ChatComponent";
+import {useAuthUser} from 'react-auth-kit'
+import { useParams } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -140,37 +140,6 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const mainLinksMockdata = [
-  {
-    icon: "https://cdn.discordapp.com/icons/1012907317798371481/a_775c7135ab079140e02c5411c80ad460.gif?size=4096",
-    name: "Server #1",
-  },
-  {
-    icon: "https://cdn.discordapp.com/avatars/556218750337286145/e7e997f4594c44fd502498a41159d575.png",
-    name: "Server #2",
-  },
-  {
-    icon: "https://cdn.discordapp.com/avatars/332131662525628416/ed55348759b2bbc0ea3d75dc95831101.png",
-    name: "Server #3",
-  },
-  {
-    icon: "https://cdn.discordapp.com/avatars/297421531771043840/39a2fd7bbc750b5df0e214772e7c6e9d.png",
-    name: "Server #4",
-  },
-  {
-    icon: "https://cdn.discordapp.com/avatars/951926795287023616/d2efd296c246d1b1501a9b2c9a805223.png",
-    name: "Server #5",
-  },
-  {
-    icon: "https://cdn.discordapp.com/icons/1012907317798371481/a_775c7135ab079140e02c5411c80ad460.gif?size=4096",
-    name: "Server #6",
-  },
-  {
-    icon: "https://cdn.discordapp.com/icons/1012907317798371481/a_775c7135ab079140e02c5411c80ad460.gif?size=4096",
-    name: "Server #7",
-  },
-];
-
 const channelsMock = [
   {
     name: "general",
@@ -210,28 +179,26 @@ const channelTypeIcon = {
 export default function GuildSidebar() {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState("");
-  const [activeLink, setActiveLink] = useState("Settings");
+  const user = useAuthUser();
 
-  const mainLinks = mainLinksMockdata.map((link) => (
+
+  const mainLinks = user()!.guilds.map((guild: any) => ( //Need to type this
     <Tooltip
-      label={link.name}
+      label={guild.name}
       position="right"
       withArrow
       transitionDuration={0}
-      key={link.name}
+      key={guild.name}
     >
       <UnstyledButton
-        onClick={() => setActive(link.name)}
-        className={cx(classes.mainLink, {
-          [classes.mainLinkActive]: link.name === active,
-        })}
+        className={cx(classes.mainLink)}
       >
-        <Image src={link.icon} radius={"xl"} withPlaceholder />
+        <Image src={guild.icon} radius={"xl"} withPlaceholder />
       </UnstyledButton>
     </Tooltip>
   ));
 
-  const links = channelsMock.map((channel) => (
+  const channels = channelsMock.map((channel) => (
     <a className={cx(classes.link)}>
       <Group>
         {channelTypeIcon[channel.type as keyof typeof channelTypeIcon]}
@@ -265,7 +232,7 @@ export default function GuildSidebar() {
               Mystic Support Guild
             </Title>
 
-            {links}
+            {channels}
           </div>
         </Navbar.Section>
       </Navbar>
