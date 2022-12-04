@@ -7,9 +7,9 @@ export default function ChatComponent() {
     <>
       <Stack sx={{ height: "100%", width: "100%" }}>
         <ChannelTopBar />
-        <ScrollArea sx={{height: '87vh'}}>
-          <Stack sx={{height: '100%'}}>
-          <Message
+        <ScrollArea sx={{ height: "87vh" }}>
+          <Stack sx={{ height: "100%" }}>
+            <Message
               author={{
                 _id: "123",
                 username: "mafineeek",
@@ -18,7 +18,7 @@ export default function ChatComponent() {
               }}
               message={{ content: "test", createdAt: new Date() }}
             />
-          <Message
+            <Message
               author={{
                 _id: "123",
                 username: "mafineeek",
@@ -27,7 +27,7 @@ export default function ChatComponent() {
               }}
               message={{ content: "test", createdAt: new Date() }}
             />
-          <Message
+            <Message
               author={{
                 _id: "123",
                 username: "mafineeek",
@@ -39,16 +39,19 @@ export default function ChatComponent() {
           </Stack>
         </ScrollArea>
       </Stack>
-        <Group sx={{ position: "absolute", bottom: 15, width: "80%" }} align={"center"}>
-          <Input.Wrapper sx={{width: "100%"}}>
-            <Input
-              type={"text"}
-              placeholder={"Type your message here..."}
-              radius={"xl"}
-              size={"md"}
-            ></Input>
-          </Input.Wrapper>
-        </Group>
+      <Group
+        sx={{ position: "absolute", bottom: 15, width: "80%" }}
+        align={"center"}
+      >
+        <Input.Wrapper sx={{ width: "100%" }}>
+          <Input
+            type={"text"}
+            placeholder={"Type your message here..."}
+            radius={"xl"}
+            size={"md"}
+          ></Input>
+        </Input.Wrapper>
+      </Group>
     </>
   );
 }
